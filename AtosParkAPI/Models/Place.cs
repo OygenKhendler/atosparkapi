@@ -7,7 +7,7 @@ namespace AtosParkAPI.Models
 {
     public class Place
     {
-        public int _PlaceID { get; set; }
+        public int ID { get; set; }
         public string _PlaceNumber { get; set; }
         public bool _Avaiable { get; set; }
         public int? _UserID { get; set; }

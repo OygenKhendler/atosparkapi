@@ -11,6 +11,8 @@ namespace AtosParkAPI.Models
     {
         public int UserId { get; set; }
         public string CarNumber  { get; set; }
-       // public string Password { get; set; }        
+       // public string Password { get; set; }
+       
+        public string Url { get; set; }
     }
 }

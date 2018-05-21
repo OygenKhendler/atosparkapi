@@ -5,12 +5,13 @@ using Newtonsoft.Json;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using AtosParkCL;
 
 namespace AtosPark
 {
     public class UserService
     {
-        const string Url = "http://localhost:62972/";
+        const string Url = "https://atospark.azurewebsites.net/api/users";
         //configure client
         private HttpClient GetClient()
         {
@@ -27,15 +28,12 @@ namespace AtosPark
         }
 
         //Add user
-        public async Task<User> AddUser(User user)
+        public async Task AddUser(User user)
         {
             HttpClient client = GetClient();
-            var response = await client.PostAsync(Url, new StringContent(JsonConvert.SerializeObject(user),Encoding.UTF8, "aplication/json"));
+            await client.PostAsync(Url, new StringContent(JsonConvert.SerializeObject(user),Encoding.UTF8, "aplication/json"));
 
-            if (response.StatusCode != HttpStatusCode.OK)
-                return null;
-
-            return JsonConvert.DeserializeObject<User>(await response.Content.ReadAsStringAsync());
+            
         }
 
     }

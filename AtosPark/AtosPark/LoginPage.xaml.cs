@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using AtosParkCL;
 
 
 
@@ -20,9 +20,8 @@ namespace AtosPark
             ViewModel = viewModel;
             this.BindingContext = this;
 		}
-        public void ButtonClicked(object sender, EventArgs args)
-        {
-            
-        }
-	}
+
+ 
+
+    }
 }

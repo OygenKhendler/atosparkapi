@@ -7,7 +7,7 @@ using System.Data.Entity;
 
 namespace AtosParkAPI.Models
 {
-    public class AtosParkDbInitializer : DropCreateDatabaseIfModelChanges<AtosParkContext>
+    public class AtosParkDbInitializer : CreateDatabaseIfNotExists<AtosParkContext>
     {
         protected override void Seed(AtosParkContext db)
         {

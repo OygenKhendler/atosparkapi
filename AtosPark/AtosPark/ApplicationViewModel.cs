@@ -4,21 +4,34 @@ using System.ComponentModel;
 using System.Text;
 using System.Linq;
 using Xamarin.Forms;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using AtosParkCL;
+
 
 
 namespace AtosPark
 {
     public class ApplicationViewModel : INotifyPropertyChanged
     {
-        bool initialized = false;
-        User selectFriend;
+        //bool initialized = false;
+        //User selectUser;
         
         public ObservableCollection<User> Users { get; set; }
         UserService userService = new UserService();
         public event PropertyChangedEventHandler PropertyChanged;
+        public string EntryValue 
+        {
+            set
+            {
+                EntryValue = value;
+            }
+            get
+            {
+                return EntryValue;
+            }
+        }
+
 
         public ICommand CreateUserCommand { protected set; get; }
 
@@ -40,7 +53,8 @@ namespace AtosPark
 
         private async void CreateUser()
         {
-            await Navigation.PushAsync(new LoginPage(new User(), this));
+
+            await userService.AddUser(new User { CarNumber = EntryValue });
         }
 
         
